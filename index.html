@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お弁当アプリ</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>お弁当アプリ</h1>
+    <div id="container">
+      <div class="category" id="rice">
+        <h2>ご飯</h2>
+        <ul>
+          <li>白米</li>
+          <li>玄米</li>
+          <li>五穀米</li>
+          <li>季節のご飯</li>
+          <li>ケチャップライス</li>
+        </ul>
+      </div>
+      <div class="category" id="main-dish">
+        <h2>主菜</h2>
+        <ul>
+          <li>鶏の唐揚げ</li>
+          <li>鮭の塩焼き</li>
+          <li>豚の生姜焼き</li>
+          <li>ハンバーグ</li>
+          <li>肉野菜炒め</li>
+        </ul>
+      </div>
+      <div class="category" id="side-dish">
+        <h2>副菜</h2>
+        <ul>
+          <li>きんぴらごぼう</li>
+          <li>ちくわの照り焼き</li>
+          <li>切り干し大根の煮物</li>
+          <li>卵焼き</li>
+          <li>ひじき煮</li>
+        </ul>
+      </div>
+      <div class="category" id="vegi">
+        <h2>野菜</h2>
+        <ul>
+          <li>にんじんしりしり</li>
+          <li>ピーマン炒め</li>
+          <li>小松菜のナムル</li>
+          <li>ポテトサラダ</li>
+          <li>トマトとブロッコリー</li>
+        </ul>
+      </div>
+      <div id="result">
+        <h2>お弁当</h2>
+        <p id="rice-result"></p>
+        <p id="main-dish-result"></p>
+        <p id="side-dish-result"></p>
+        <p id="vegi-result"></p>
+      </div>
+      <button id="generate-btn">お弁当を生成する</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+
+  <script>
+    const riceList = ["白米", "玄米", "五穀米", "季節のご飯", "ケチャップライス"];
+    const mainDishList = ["鶏の唐揚げ", "鮭の塩焼き", "豚の生姜焼き", "ハンバーグ", "肉野菜炒め"];
+    const sideDishList = ["きんぴらごぼう", "ちくわの照り焼き", "切り干し大根の煮物", "卵焼き", "ひじき煮"];
+    const vegiList = ["にんじんしりしり", "ピーマン炒め","小松菜のナムル", "ポテトサラダ", "トマトとブロッコリー"];
+
+    const riceResult = document.getElementById("rice-result");
+    const mainDishResult = document.getElementById("main-dish-result");
+    const sideDishResult = document.getElementById("side-dish-result");
+    const vegiResult = document.getElementById("vegi-result");
+    const generateBtn = document.getElementById("generate-btn");
+
+  generateBtn.addEventListener("click", () => {
+    const randomRice = riceList[Math.floor(Math.random() * riceList.length)];
+    const randomMainDish = mainDishList[Math.floor(Math.random() * mainDishList.length)];
+    const randomSideDish = sideDishList[Math.floor(Math.random() * sideDishList.length)];
+    const randomVegi = vegiList[Math.floor(Math.random() * vegiList.length)];
+
+    riceResult.textContent = randomRice;
+    mainDishResult.textContent = randomMainDish;
+    sideDishResult.textContent = randomSideDish;
+    vegiResult.textContent = randomVegi;
+});
+  </script>
+</html>
